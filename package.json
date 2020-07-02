@@ -1,0 +1,25 @@
+{
+  "name": "qm-hub-virtual-communication-mapping",
+  "version": "1.0.0",
+  "description": "virtual-communication mapping module - Node-Red",
+  "main": "mapeamento.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/modulesQuimera/qm-hub-virtual-communication-mapping.git"
+  },
+  "keywords": ["quimera", "hub", "JIG"],
+  "author": "HUB-LSE",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/modulesQuimera/qm-hub-virtual-communication-mapping/issues"
+  },
+  "homepage": "https://github.com/modulesQuimera/qm-hub-virtual-communication-mapping#readme",
+  "node-red": {
+		"nodes": {
+			"mapeamento": "mapeamento.js"
+		}
+	}
+}
