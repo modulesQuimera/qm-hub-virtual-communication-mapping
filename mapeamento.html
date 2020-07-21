@@ -1,70 +1,88 @@
-<script type="text/html" data-template-name="mapeamento">
-    <!-- <div class="form-row">
-        <label for="node-config-input-name"><i class="fa fa-tag"></i> Name</label>
-        <input type="text"  maxlength="8" id="node-config-input-name" style="width:87%; margin-left: 0px">
-    </div> -->
+<style>
+
+    .label-send{
+        width: 24% !important;
+    }
+
+    .input-resp{
+        width: 27% !important;
+    }
+</style>
+
+
+<script type="text/html" data-template-name="communication-mapping">
+    <div class="form-row columm">
+        <label  for="node-config-input-name"><i class="fa fa-tag"></i> Mapping Name</label>
+        <input type="text" id="node-config-input-name" style="width:80%;">
+    </div>
+    <div class="form-row columm">
+        <label  for="node-config-input-slot"><i class="fa fa-sliders"></i> Slot</label>
+        <input type="number" id="node-config-input-slot" style="width:20%;">
+    </div>
+    <hr class="hr-full">
     <h2>SLOT 1 communication modular Mapping</h2>
     <div class="form-row">
-        <label style="width:60%"> CTS_1 | RTS_1 | RXD_1 | TXD_1 - </label><input type="text"  maxlength="8" id="node-config-input-labelPort1" style="width:37%; margin-left: 0px">
+        <label class="label-send"> RS232_DB9 - </label><input type="text" class="input-resp"  maxlength="8" id="node-config-input-labelPort1" >
     </div>
     <div class="form-row">
-        <label style="width:60%"> RXD_2 | TXD_2 - </label><input type="text"  maxlength="8" id="node-config-input-labelPort2" style="width:37%; margin-left: 0px">
+        <label class="label-send"> RS232_RJ11 - </label><input type="text" class="input-resp"  maxlength="8" id="node-config-input-labelPort2" >
     </div>
     <div class="form-row">
-        <label style="width:60%"> RX_RS485 | TX_RS485 - </label><input type="text"  maxlength="8" id="node-config-input-labelPort3" style="width:37%; margin-left: 0px">
+        <label class="label-send"> RS485 - </label><input type="text" class="input-resp"  maxlength="8" id="node-config-input-labelPort3" >
     </div>
     <div class="form-row">
-        <label style="width:60%"> X_COM | TX_COM - </label><input type="text"  maxlength="8" id="node-config-input-labelPort4" style="width:37%; margin-left: 0px">
+        <label class="label-send"> UART_COM - </label><input type="text" class="input-resp"  maxlength="8" id="node-config-input-labelPort4" >
     </div>
     <div class="form-row">
-        <label style="width:60%"> RX1 | TX1 - </label><input type="text"  maxlength="8" id="node-config-input-labelPort5" style="width:37%; margin-left: 0px">
+        <label class="label-send"> UART_1 - </label><input type="text" class="input-resp"  maxlength="8" id="node-config-input-labelPort5" >
     </div>
     <div class="form-row">
-        <label style="width:60%"> RX2 | TX2 - </label><input type="text"  maxlength="8" id="node-config-input-labelPort6" style="width:37%; margin-left: 0px">
+        <label class="label-send"> UART_2 - </label><input type="text" class="input-resp"  maxlength="8" id="node-config-input-labelPort6" >
     </div>
     <div class="form-row">
-        <label style="width:60%"> RX3 | TX3 - </label><input type="text"  maxlength="8" id="node-config-input-labelPort7" style="width:37%; margin-left: 0px">
+        <label class="label-send"> UART_3 - </label><input type="text" class="input-resp"  maxlength="8" id="node-config-input-labelPort7" >
     </div>
     <div class="form-row">
-        <label style="width:60%"> RX4 | TX4 - </label><input type="text"  maxlength="8" id="node-config-input-labelPort8" style="width:37%; margin-left: 0px">
+        <label class="label-send"> UART_4 - </label><input type="text" class="input-resp"  maxlength="8" id="node-config-input-labelPort8" >
     </div>
     <div class="form-row">
-        <label style="width:60%"> SDA | STL - </label><input type="text"  maxlength="8" id="node-config-input-labelPort9" style="width:37%; margin-left: 0px">
+        <label class="label-send"> I2C - </label><input type="text" class="input-resp"  maxlength="8" id="node-config-input-labelPort9" >
     </div>
     <div class="form-row">
-        <label style="width:60%"> CS | SCK | MISO | MOSI - </label><input type="text"  maxlength="8" id="node-config-input-labelPort10" style="width:37%; margin-left: 0px">
+        <label class="label-send"> SPI - </label><input type="text" class="input-resp"  maxlength="8" id="node-config-input-labelPort10" >
     </div>
 </script>
 
-<script type="text/html" data-help-name="mapeamento">
+<script type="text/html" data-help-name="communication-mapping">
     <p>working on it...</p>
 </script>
 
 <script type="text/javascript">
-    RED.nodes.registerType('mapeamento',{
+    RED.nodes.registerType('communication-mapping',{
         category: 'config',
         defaults: {
-            name: {value:"Communication slot 1 mapping"},
-            labelPort1: {value: "TP", required: true},
-            valuePort1: {value: "RS232_1", required: true},
-            labelPort2: {value: "TP", required: true},
-            valuePort2: {value: "RS232_2", required: true},
-            labelPort3: {value: "TP", required: true},
-            valuePort3: {value: "RS485", required: true},
-            labelPort4: {value: "TP", required: true},
-            valuePort4: {value: "UART_COM", required: true},
-            labelPort5: {value: "TP", required: true},
-            valuePort5: {value: "UART_1", required: true},
-            labelPort6: {value: "TP", required: true},
-            valuePort6: {value: "UART_2", required: true},
-            labelPort7: {value: "TP", required: true},
-            valuePort7: {value: "UART_3", required: true},
-            labelPort8: {value: "TP", required: true},
-            valuePort8: {value: "UART_4", required: true},
-            labelPort9: {value: "TP", required: true},
-            valuePort9: {value: "I2C", required: true},
-            labelPort10: {value: "TP", required: true},
-            valuePort10: {value: "SPI", required: true},
+            name: {value:""},
+            slot: {value:"", required:true},
+            labelPort1: {value: ""},
+            valuePort1: {value: "RS232_1"},
+            labelPort2: {value: ""},
+            valuePort2: {value: "RS232_2"},
+            labelPort3: {value: ""},
+            valuePort3: {value: "RS485"},
+            labelPort4: {value: ""},
+            valuePort4: {value: "UART_COM"},
+            labelPort5: {value: ""},
+            valuePort5: {value: "UART_1"},
+            labelPort6: {value: ""},
+            valuePort6: {value: "UART_2"},
+            labelPort7: {value: ""},
+            valuePort7: {value: "UART_3"},
+            labelPort8: {value: ""},
+            valuePort8: {value: "UART_4"},
+            labelPort9: {value: ""},
+            valuePort9: {value: "I2C"},
+            labelPort10: {value: ""},
+            valuePort10: {value: "SPI"},
         },
         label: function() { return this.name || "" },
     });
