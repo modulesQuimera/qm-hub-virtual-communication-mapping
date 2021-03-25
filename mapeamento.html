@@ -1,271 +1,3 @@
-<style>
-
-    .label-send{
-        width: 35% !important;
-        float: left;
-    }
-
-    .input-resp{
-        width: 50% !important;
-    }
-
-    .align{
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-    }
-</style>
-
-
-<script type="text/html" data-template-name="communication-mapping">
-    <div class="form-row columm">
-        <label  for="node-config-input-name"><i class="fa fa-tag"></i> Mapping Name</label>
-        <input type="text" id="node-config-input-name" style="width:80%;">
-    </div>
-    <div class="form-row columm">
-        <label  for="node-config-input-slot"><i class="fa fa-sliders"></i> Slot</label>
-        <input type="number" id="node-config-input-slot" style="width:20%;">
-    </div>
-    <div class="form-row columm">
-        <label  for="node-config-input-slot"><i class="fa fa-sliders"></i>Mapping type</label>
-        <select id="node-config-input-mappingType">
-            <option value="1" selected>UART</option> 
-            <option value="2">SPI_I2C</option> 
-            <option value="3">RS-232_DB9</option> 
-            <option value="4">RS-232_RJ11</option> 
-            <option value="5">UART_COM</option> 
-            <option value="6">RS-485</option> 
-          </select>
-    </div>
-
-    <hr class="hr-full">
-    <h2>SLOT 1 communication modular Mapping</h2>
-    <!-- <div class="form-row">
-        <label class="label-send"> RS232_DB9 - </label><input type="text" class="input-resp"  id="node-config-input-labelPort1" >
-    </div>
-    <div class="form-row">
-        <label class="label-send"> RS232_RJ11 - </label><input type="text" class="input-resp"  id="node-config-input-labelPort2" >
-    </div>
-    <div class="form-row">
-        <label class="label-send"> RS485 - </label><input type="text" class="input-resp"  id="node-config-input-labelPort3" >
-    </div>
-    <div class="form-row">
-        <label class="label-send"> UART_COM - </label><input type="text" class="input-resp"  id="node-config-input-labelPort4" >
-    </div>
-    <div class="form-row">
-        <label class="label-send"> UART_1 - </label><input type="text" class="input-resp"  id="node-config-input-labelPort5" >
-    </div>
-    <div class="form-row">
-        <label class="label-send"> UART_2 - </label><input type="text" class="input-resp"  id="node-config-input-labelPort6" >
-    </div>
-    <div class="form-row">
-        <label class="label-send"> UART_3 - </label><input type="text" class="input-resp"  id="node-config-input-labelPort7" >
-    </div>
-    <div class="form-row">
-        <label class="label-send"> UART_4 - </label><input type="text" class="input-resp"  id="node-config-input-labelPort8" >
-    </div>
-    <div class="form-row">
-        <label class="label-send"> I2C - </label><input type="text" class="input-resp"  id="node-config-input-labelPort9" >
-    </div>
-    <div class="form-row">
-        <label class="label-send"> SPI - </label><input type="text" class="input-resp"  id="node-config-input-labelPort10" >
-    </div> -->
-
-    <div class="form-row align ">
-        <label class="label-send">Jig Interface</label>
-        <label style="width: 48% !important;">Board Interface (TP or Connector)</label>
-       
-    </div>
-
-
-    <div class="UART" style="display: none;">
-        
-        <div class="form-row align ">
-            <label class="label-send">UART1 - RX - PIN 1</label>
-            <input type="text" class="input-resp"  id="node-config-input-labelPort1" >
-        </div>
-        
-        <div class="form-row align ">
-            <label class="label-send">UART1 - TX - PIN 2</label>
-            <input type="text" class="input-resp"  id="node-config-input-labelPort2" >
-        </div>
-        
-        <div class="form-row align ">
-            <label class="label-send">UART2 - RX - PIN 3</label>
-            <input type="text" class="input-resp"  id="node-config-input-labelPort3" >
-        </div>
-        
-        <div class="form-row align ">
-            <label class="label-send">UART2 - TX - PIN 4</label>
-            <input type="text" class="input-resp"  id="node-config-input-labelPort4" >
-        </div>
-        
-        <div class="form-row align ">
-            <label class="label-send">AGND - PIN 5</label>
-            <input type="text" class="input-resp"  id="node-config-input-labelPort5" >
-        </div>
-        
-        <div class="form-row align ">
-            <label class="label-send">UART3 - RX - PIN 6</label>
-            <input type="text" class="input-resp"  id="node-config-input-labelPort6" >
-        </div>
-        
-        <div class="form-row align ">
-            <label class="label-send">UART3 - TX - PIN 7</label>
-            <input type="text" class="input-resp"  id="node-config-input-labelPort7" >
-        </div>
-        
-        <div class="form-row align ">
-            <label class="label-send">UART4 - RX - PIN 8</label>
-            <input type="text" class="input-resp"  id="node-config-input-labelPort8" >
-        </div>
-        
-        <div class="form-row align ">
-            <label class="label-send">UART4 - TX - PIN 9</label>
-            <input type="text" class="input-resp"  id="node-config-input-labelPort9" >
-        </div>
-        
-        <div class="form-row align ">
-            <label class="label-send">AGND - PIN 10</label>
-            <input type="text" class="input-resp"  id="node-config-input-labelPort10">
-        </div>
-    </div>
-
-    <div class="SPI" style="display: none;">
-        <div class="form-row align ">
-            <label class="label-send">3.3V_A - PIN 1</label>
-            <input type="text" class="input-resp"  id="node-config-input-labelPort11" >
-        </div>
-
-        <div class="form-row align ">
-            <label class="label-send">CS - PIN 2</label>
-            <input type="text" class="input-resp"  id="node-config-input-labelPort12" >
-        </div>
-
-        <div class="form-row align ">
-            <label class="label-send">SCK - PIN 3</label>
-            <input type="text" class="input-resp"  id="node-config-input-labelPort13" >
-        </div>
-
-        <div class="form-row align ">
-            <label class="label-send">MOSI - PIN 4</label>
-            <input type="text" class="input-resp"  id="node-config-input-labelPort14" >
-        </div>
-
-        <div class="form-row align ">
-            <label class="label-send">MISO - PIN 5</label>
-            <input type="text" class="input-resp"  id="node-config-input-labelPort15" >
-        </div>
-
-        <div class="form-row align ">
-            <label class="label-send">DAS - PIN 6</label>
-            <input type="text" class="input-resp"  id="node-config-input-labelPort16" >
-        </div>
-
-        <div class="form-row align ">
-            <label class="label-send">SCL - PIN 7</label>
-            <input type="text" class="input-resp"  id="node-config-input-labelPort17" >
-        </div>
-
-        <div class="form-row align ">
-            <label class="label-send">AGND - PIN 8</label>
-            <input type="text" class="input-resp"  id="node-config-input-labelPort18" >
-        </div>
-
-    </div>
-
-    <div class="DB9" style="display: none;">
-        
-        <div class="form-row align ">
-            <label class="label-send">RXD - PIN 1</label>
-            <input type="text" class="input-resp"  id="node-config-input-labelPort19" >
-        </div>
-        
-        <div class="form-row align ">
-            <label class="label-send">CST - PIN 2</label>
-            <input type="text" class="input-resp"  id="node-config-input-labelPort20" >
-        </div>
-        
-        <div class="form-row align ">
-            <label class="label-send">TXD - PIN 3</label>
-            <input type="text" class="input-resp"  id="node-config-input-labelPort21" >
-        </div>
-        
-        <div class="form-row align ">
-            <label class="label-send">RST - PIN 4</label>
-            <input type="text" class="input-resp"  id="node-config-input-labelPort22" >
-        </div>
-        
-        <div class="form-row align ">
-            <label class="label-send">AGND - PIN 5</label>
-            <input type="text" class="input-resp"  id="node-config-input-labelPort23" >
-        </div>
-    </div>
-
-    <div class="RJ11" style="display: none;">
-        
-        <div class="form-row align ">
-            <label class="label-send">RS232 - TX - PIN 3</label>
-            <input type="text" class="input-resp"  id="node-config-input-labelPort24">
-        </div>
-        
-        <div class="form-row align ">
-            <label class="label-send">AGND - PIN 4</label>
-            <input type="text" class="input-resp"  id="node-config-input-labelPort25">
-        </div>
-        
-        <div class="form-row align ">
-            <label class="label-send">RS232 - RX - PIN 5</label>
-            <input type="text" class="input-resp"  id="node-config-input-labelPort26">
-        </div>
-    </div>
-
-    <div class="COM" style="display: none;">
-        
-        <div class="form-row align ">
-            <label class="label-send">UART_COM 3.3V - PIN 1</label>
-            <input type="text" class="input-resp"  id="node-config-input-labelPort27" >
-        </div>
-        
-        <div class="form-row align ">
-            <label class="label-send">UART_COM - RX - PIN 2</label>
-            <input type="text" class="input-resp"  id="node-config-input-labelPort28" >
-        </div>
-        
-        <div class="form-row align ">
-            <label class="label-send">UART_COM - TX - PIN 3</label>
-            <input type="text" class="input-resp"  id="node-config-input-labelPort29" >
-        </div>
-        
-        <div class="form-row align ">
-            <label class="label-send">AGND - TX - PIN 4</label>
-            <input type="text" class="input-resp"  id="node-config-input-labelPort30" >
-        </div>
-    </div>
-
-    <div class="RS485" style="display: none;">
-        
-        <div class="form-row align ">
-            <label class="label-send">RS485 - A - PIN 1</label>
-            <input type="text" class="input-resp"  id="node-config-input-labelPort31" >
-        </div>
-        
-        <div class="form-row align ">
-            <label class="label-send">RS485 - B - PIN 2</label>
-            <input type="text" class="input-resp"  id="node-config-input-labelPort32" >
-        </div>
-        
-        <div class="form-row align ">
-            <label class="label-send">AGND - PIN 3</label>
-            <input type="text" class="input-resp"  id="node-config-input-labelPort33" >
-        </div>
-    </div>
-</script>
-
-<script type="text/html" data-help-name="communication-mapping">
-    <p>working on it...</p>
-</script>
-
 <script type="text/javascript">
     RED.nodes.registerType('communication-mapping',{
         category: 'config',
@@ -273,7 +5,7 @@
             name: {value:""},
             slot: {value:"", required:true},
 
-            mappingType: {value:""},
+            mappingType: {value:"1"},
 
             labelPort1: {value: ""},
             labelPort2: {value: ""},
@@ -316,12 +48,10 @@
         },
         label: function() { return this.name || "" },
         oneditresize: function() {
-            console.log("oiiiiiiiiiiiiiiiii")
             $("#red-ui-editor-config-scope").val($("#red-ui-editor-config-scope option:first").val());
         },
 		oneditprepare: function() { 
             $("#node-config-input-mappingType").on("change", function(e) {
-                console.log("entrou no ONchange")
                 var compare = $(this).val();
                 if (compare === "1") { $(".UART").show(); $(".SPI").hide(); $(".DB9").hide(); $(".RJ11").hide(); $(".COM").hide(); $(".RS485").hide();}
                 if (compare === "2") { $(".UART").hide(); $(".SPI").show(); $(".DB9").hide(); $(".RJ11").hide(); $(".COM").hide(); $(".RS485").hide();}
@@ -330,6 +60,236 @@
                 if (compare === "5") { $(".UART").hide(); $(".SPI").hide(); $(".DB9").hide(); $(".RJ11").hide(); $(".COM").show(); $(".RS485").hide();}
                 if (compare === "6") { $(".UART").hide(); $(".SPI").hide(); $(".DB9").hide(); $(".RJ11").hide(); $(".COM").hide(); $(".RS485").show();}
             });
+            $("#SLOT").text(` INSTANCE ${this.slot != undefined ? this.slot : "" } Communication modular Mapping`);
         }
     });
 </script>
+
+<style>
+    .label-send{ width: 35% !important; float: left; }
+    .input-resp{ width: 50% !important; }
+    .align{ display: flex; justify-content: space-around; align-items: center; }
+    .global{ min-width: 500px !important;}
+</style>
+
+
+<script type="text/html" data-template-name="communication-mapping">
+    <div class="form-row columm">
+        <label  for="node-config-input-name"><i class="fa fa-tag"></i> Mapping Name</label>
+        <input type="text" id="node-config-input-name" style="width:80%;">
+    </div>
+    <div class="form-row columm">
+        <label  for="node-config-input-slot"><i class="fa fa-sliders"></i> Instance</label>
+        <input type="number" id="node-config-input-slot" style="width:20%;">
+    </div>
+    <div class="form-row columm">
+        <label  for="node-config-input-slot"><i class="fa fa-sliders"></i> Mapping type</label>
+        <select id="node-config-input-mappingType">
+            <option value="1" selected>UART</option> 
+            <option value="2">SPI_I2C</option> 
+            <option value="3">RS-232_DB9</option> 
+            <option value="4">RS-232_RJ11</option> 
+            <option value="5">UART_COM</option> 
+            <option value="6">RS-485</option> 
+          </select>
+    </div>
+
+    <hr class="hr-full">
+    <h2 id="SLOT"></h2>
+    <div class="form-row align ">
+        <label class="label-send">Jig Interface</label>
+        <label style="width: 48% !important;">Board Interface (TP or Connector)</label>
+       
+    </div>
+
+    <div class="global">
+        <h3>Connector XG4A-1034</h3>
+        <div class="UART">            
+            <div class="form-row align ">
+                <label class="label-send"><i class="fa fa-microchip"></i> UART1 - RX - PIN 10</label>
+                <input type="text" class="input-resp"  id="node-config-input-labelPort1" >
+            </div>
+            
+            <div class="form-row align ">
+                <label class="label-send"><i class="fa fa-microchip"></i> UART1 - TX - PIN 9</label>
+                <input type="text" class="input-resp"  id="node-config-input-labelPort2" >
+            </div>
+            
+            <div class="form-row align ">
+                <label class="label-send"><i class="fa fa-microchip"></i> UART2 - RX - PIN 8</label>
+                <input type="text" class="input-resp"  id="node-config-input-labelPort3" >
+            </div>
+            
+            <div class="form-row align ">
+                <label class="label-send"><i class="fa fa-microchip"></i> UART2 - TX - PIN 7</label>
+                <input type="text" class="input-resp"  id="node-config-input-labelPort4" >
+            </div>
+            
+            <div class="form-row align ">
+                <label class="label-send"><i class="fa fa-microchip"></i> AGND - PIN 2</label>
+                <input type="text" class="input-resp"  id="node-config-input-labelPort5" >
+            </div>
+            
+            <div class="form-row align ">
+                <label class="label-send"><i class="fa fa-microchip"></i> UART3 - RX - PIN 6</label>
+                <input type="text" class="input-resp"  id="node-config-input-labelPort6" >
+            </div>
+            
+            <div class="form-row align ">
+                <label class="label-send"><i class="fa fa-microchip"></i> UART3 - TX - PIN 5</label>
+                <input type="text" class="input-resp"  id="node-config-input-labelPort7" >
+            </div>
+            
+            <div class="form-row align ">
+                <label class="label-send"><i class="fa fa-microchip"></i> UART4 - RX - PIN 4</label>
+                <input type="text" class="input-resp"  id="node-config-input-labelPort8" >
+            </div>
+            
+            <div class="form-row align ">
+                <label class="label-send"><i class="fa fa-microchip"></i> UART4 - TX - PIN 3</label>
+                <input type="text" class="input-resp"  id="node-config-input-labelPort9" >
+            </div>
+            
+            <div class="form-row align ">
+                <label class="label-send"><i class="fa fa-microchip"></i> AGND - PIN 1</label>
+                <input type="text" class="input-resp"  id="node-config-input-labelPort10">
+            </div>
+        </div>
+    
+        <div class="SPI" style="display: none;">
+            <div class="form-row align ">
+                <label class="label-send"><i class="fa fa-microchip"></i> 3.3V_A - PIN 1</label>
+                <input type="text" class="input-resp"  id="node-config-input-labelPort11" >
+            </div>
+    
+            <div class="form-row align ">
+                <label class="label-send"><i class="fa fa-microchip"></i> CS - PIN 2</label>
+                <input type="text" class="input-resp"  id="node-config-input-labelPort12" >
+            </div>
+    
+            <div class="form-row align ">
+                <label class="label-send"><i class="fa fa-microchip"></i> SCK - PIN 3</label>
+                <input type="text" class="input-resp"  id="node-config-input-labelPort13" >
+            </div>
+    
+            <div class="form-row align ">
+                <label class="label-send"><i class="fa fa-microchip"></i> MOSI - PIN 4</label>
+                <input type="text" class="input-resp"  id="node-config-input-labelPort14" >
+            </div>
+    
+            <div class="form-row align ">
+                <label class="label-send"><i class="fa fa-microchip"></i> MISO - PIN 5</label>
+                <input type="text" class="input-resp"  id="node-config-input-labelPort15" >
+            </div>
+    
+            <div class="form-row align ">
+                <label class="label-send"><i class="fa fa-microchip"></i> SDA - PIN 6</label>
+                <input type="text" class="input-resp"  id="node-config-input-labelPort16" >
+            </div>
+    
+            <div class="form-row align ">
+                <label class="label-send"><i class="fa fa-microchip"></i> SCL - PIN 7</label>
+                <input type="text" class="input-resp"  id="node-config-input-labelPort17" >
+            </div>
+    
+            <div class="form-row align ">
+                <label class="label-send"><i class="fa fa-microchip"></i> AGND - PIN 8</label>
+                <input type="text" class="input-resp"  id="node-config-input-labelPort18" >
+            </div>
+    
+        </div>
+    
+        <div class="DB9" style="display: none;">
+            
+            <div class="form-row align ">
+                <label class="label-send"><i class="fa fa-microchip"></i> RXD - PIN 2</label>
+                <input type="text" class="input-resp"  id="node-config-input-labelPort19" >
+            </div>
+            
+            <div class="form-row align ">
+                <label class="label-send"><i class="fa fa-microchip"></i> CST - PIN 8</label>
+                <input type="text" class="input-resp"  id="node-config-input-labelPort20" >
+            </div>
+            
+            <div class="form-row align ">
+                <label class="label-send"><i class="fa fa-microchip"></i> TXD - PIN 3</label>
+                <input type="text" class="input-resp"  id="node-config-input-labelPort21" >
+            </div>
+            
+            <div class="form-row align ">
+                <label class="label-send"><i class="fa fa-microchip"></i> RTS - PIN 7</label>
+                <input type="text" class="input-resp"  id="node-config-input-labelPort22" >
+            </div>
+            
+            <div class="form-row align ">
+                <label class="label-send"><i class="fa fa-microchip"></i> AGND - PIN 5</label>
+                <input type="text" class="input-resp"  id="node-config-input-labelPort23" >
+            </div>
+        </div>
+    
+        <div class="RJ11" style="display: none;">
+            
+            <div class="form-row align ">
+                <label class="label-send"><i class="fa fa-microchip"></i> RS232 - TX - PIN 3</label>
+                <input type="text" class="input-resp"  id="node-config-input-labelPort24">
+            </div>
+            
+            <div class="form-row align ">
+                <label class="label-send"><i class="fa fa-microchip"></i> AGND - PIN 4</label>
+                <input type="text" class="input-resp"  id="node-config-input-labelPort25">
+            </div>
+            
+            <div class="form-row align ">
+                <label class="label-send"><i class="fa fa-microchip"></i> RS232 - RX - PIN 5</label>
+                <input type="text" class="input-resp"  id="node-config-input-labelPort26">
+            </div>
+        </div>
+    
+        <div class="COM" style="display: none;">
+
+            <div class="form-row align ">
+                <label class="label-send"><i class="fa fa-microchip"></i> UART_COM 3.3V - PIN 1</label>
+                <input type="text" class="input-resp"  id="node-config-input-labelPort27" >
+            </div>
+            
+            <div class="form-row align ">
+                <label class="label-send"><i class="fa fa-microchip"></i> UART_COM - RX - PIN 2</label>
+                <input type="text" class="input-resp"  id="node-config-input-labelPort28" >
+            </div>
+            
+            <div class="form-row align ">
+                <label class="label-send"><i class="fa fa-microchip"></i> UART_COM - TX - PIN 3</label>
+                <input type="text" class="input-resp"  id="node-config-input-labelPort29" >
+            </div>
+            
+            <div class="form-row align ">
+                <label class="label-send"><i class="fa fa-microchip"></i> AGND - TX - PIN 4</label>
+                <input type="text" class="input-resp"  id="node-config-input-labelPort30" >
+            </div>
+        </div>
+    
+        <div class="RS485" style="display: none;">
+            
+            <div class="form-row align ">
+                <label class="label-send"><i class="fa fa-microchip"></i> RS485 - A - PIN 2</label>
+                <input type="text" class="input-resp"  id="node-config-input-labelPort31" >
+            </div>
+            
+            <div class="form-row align ">
+                <label class="label-send"><i class="fa fa-microchip"></i> RS485 - B - PIN 1</label>
+                <input type="text" class="input-resp"  id="node-config-input-labelPort32" >
+            </div>
+            
+            <div class="form-row align ">
+                <label class="label-send"><i class="fa fa-microchip"></i> AGND - PIN 3</label>
+                <input type="text" class="input-resp"  id="node-config-input-labelPort33" >
+            </div>
+        </div>
+    </div>
+</script>
+
+<script type="text/html" data-help-name="communication-mapping">
+    <p>working on it...</p>
+</script>
+
+
