@@ -1,6 +1,6 @@
 {
   "name": "qm-virtual-communication-mapping",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "virtual-communication mapping module - Node-Red",
   "main": "mapeamento.js",
   "scripts": {
